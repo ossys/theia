@@ -420,6 +420,7 @@ export class MonacoEditorModel implements ITextEditorModel, TextEditorDocument {
         try {
             const encoding = this.getEncoding();
             const version = this.resourceVersion;
+            console.log('Monaco Editor Model, saving resource: ' + this.resource.uri);
             await Resource.save(this.resource, { changes, content, options: { encoding, overwriteEncoding, version } }, token);
             this.contentChanges.splice(0, changes.length);
             this.resourceVersion = this.resource.version;

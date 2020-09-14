@@ -95,6 +95,7 @@ export class FileSystemNode implements FileSystem {
         if (stat.isDirectory) {
             throw FileSystemError.FileIsDirectory(file.uri, 'Cannot set the content.');
         }
+        console.log('Checking file stats:\n' + JSON.stringify(file) + '\n' + JSON.stringify(stat));
         if (!(await this.isInSync(file, stat))) {
             throw this.createOutOfSyncError(file, stat);
         }
