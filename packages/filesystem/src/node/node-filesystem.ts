@@ -521,6 +521,7 @@ export class FileSystemNode implements FileSystem {
     }
 
     protected async doCreateFileStat(uri: URI, stat: fs.Stats): Promise<FileStat> {
+        console.log('doCreateFileStat: uri = ' + uri.toString() + ', stat = ' + JSON.stringify(stat));
         return {
             uri: uri.toString(),
             lastModification: stat.mtime.getTime(),
